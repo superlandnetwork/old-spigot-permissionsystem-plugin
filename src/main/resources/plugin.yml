@@ -1,0 +1,28 @@
+name: PermissionSystem
+version: ${project.version}
+main: de.superlandnetwork.spigot.permission.Main
+prefix: PermissionSystem
+authors: [ursinn]
+description: ${project.description}
+website: ${project.url}
+api-version: 1.14
+commands:
+  perm:
+    description: Perm Command
+    permission: permissionsystem.command.perm
+    permission-message: You not have have permission to use this command.
+    usage: "Usage: /<command>"
+permissions:
+  permissionsystem.*:
+    description: Wildcard permission
+    default: false
+    children:
+      permissionsystem.command.*: true
+  permissionsystem.command.*:
+    description: Wildcard permission
+    default: op
+    children:
+      permissionsystem.command.perm: true
+  permissionsystem.command.perm:
+    description: Perm Command
+    default: op
