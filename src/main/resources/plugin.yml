@@ -6,6 +6,8 @@ authors: [ursinn]
 description: ${project.description}
 website: ${project.url}
 api-version: 1.14
+depend:
+  - API
 commands:
   perm:
     description: Perm Command

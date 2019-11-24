@@ -31,7 +31,6 @@ package de.superlandnetwork.spigot.permission;
 import com.google.common.reflect.ClassPath;
 import de.superlandnetwork.spigot.api.database.MySQL;
 import de.superlandnetwork.spigot.permission.commands.Perm;
-import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -45,9 +44,7 @@ public final class Main extends JavaPlugin {
         instance = this;
         registerListener();
 
-        PluginCommand perm = getCommand("perm");
-        perm.setExecutor(new Perm());
-        //perm.setTabCompleter(new Perm());
+        getCommand("perm").setExecutor(new Perm());
         saveDefaultConfig();
     }
 
