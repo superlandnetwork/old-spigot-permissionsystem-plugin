@@ -80,6 +80,7 @@ public class PermissionAPI {
         HashMap<Integer, Long> times = new HashMap<>();
         String sql = "SELECT * FROM " + Table.MC_USERS.getName() + " WHERE `deleted_at` IS NULL AND uuid='"+ uuid.toString() + "'";
         ResultSet rs = mySQL.getResult(sql);
+        groupIds.add(1);
         while (rs.next()) {
             ids.add(rs.getInt("id"));
             groupIds.add(rs.getInt("groupId"));
