@@ -33,10 +33,7 @@ import de.superlandnetwork.spigot.permission.Main;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class PermissionAPI {
 
@@ -64,14 +61,14 @@ public class PermissionAPI {
         return list;
     }
 
-    public Group getGroup(String name) throws SQLException {
+    public Optional<Group> getGroup(String name) throws SQLException {
         String sql = "SELECT * FROM " + Table.MC_GROUPS.getName() + " WHERE `deleted_at` IS NULL AND name='"+ name + "'";
         ResultSet rs = mySQL.getResult(sql);
         if (rs.next())
-            return new Group(rs.getInt("id"), rs.getString("name"), rs.getString("tab"),
+            return Optional.of(new Group(rs.getInt("id"), rs.getString("name"), rs.getString("tab"),
                     rs.getString("chat"), rs.getBoolean("staff"), rs.getBoolean("visible"),
-                    rs.getBoolean("temp"));
-        return null;
+                    rs.getBoolean("temp")));
+        return Optional.empty();
     }
 
     public User getUser(UUID uuid) throws SQLException {
@@ -99,20 +96,20 @@ public class PermissionAPI {
         return list;
     }
 
-    public String getChat(int groupId) throws SQLException {
+    public Optional<String> getChat(int groupId) throws SQLException {
         String sql = "SELECT `chat` FROM " + Table.MC_GROUPS.getName() + " WHERE `deleted_at` IS NULL AND id='"+ groupId + "'";
         ResultSet rs = mySQL.getResult(sql);
         if (rs.next())
-            return rs.getString("chat");
-        return null;
+            return Optional.of(rs.getString("chat"));
+        return Optional.empty();
     }
 
-    public String getTab(int groupId) throws SQLException {
+    public Optional<String> getTab(int groupId) throws SQLException {
         String sql = "SELECT `tab` FROM " + Table.MC_GROUPS.getName() + " WHERE `deleted_at` IS NULL AND id='"+ groupId + "'";
         ResultSet rs = mySQL.getResult(sql);
         if (rs.next())
-            return rs.getString("tab");
-        return null;
+            return Optional.of(rs.getString("tab"));
+        return Optional.empty();
     }
 
     public int getHighestVisibleGroup(UUID uuid) throws SQLException {

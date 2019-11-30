@@ -36,6 +36,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class ChatListener implements Listener {
 
@@ -46,7 +47,14 @@ public class ChatListener implements Listener {
         try {
             api.connect();
             e.setMessage(ChatColor.translateAlternateColorCodes('&', e.getMessage()));
-            e.setFormat(api.getChat(api.getHighestVisibleGroup(p.getUniqueId())) + " §7: §f" + e.getMessage());
+            Optional<String> s = api.getChat(api.getHighestVisibleGroup(p.getUniqueId()));
+            if (s.isPresent())
+                e.setFormat(s.get() + " §7: §f" + e.getMessage());
+            else {
+                e.getPlayer().sendMessage("§cSomething went Wrong! Please Contact a Server Administrator.");
+                System.err.println("Permission System: Chat Error!");
+                e.setCancelled(true);
+            }
             api.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
