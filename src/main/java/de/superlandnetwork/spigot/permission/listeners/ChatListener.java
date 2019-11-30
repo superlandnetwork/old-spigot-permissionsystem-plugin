@@ -47,9 +47,10 @@ public class ChatListener implements Listener {
         try {
             api.connect();
             e.setMessage(ChatColor.translateAlternateColorCodes('&', e.getMessage()));
-            Optional<String> s = api.getChat(api.getHighestVisibleGroup(p.getUniqueId()));
+            int i = api.getHighestVisibleGroup(p.getUniqueId());
+            Optional<String> s = api.getChat(i);
             if (s.isPresent())
-                e.setFormat(s.get() + " §7: §f" + e.getMessage());
+                e.setFormat(ChatColor.translateAlternateColorCodes('&', s.get()) + e.getPlayer().getDisplayName() +" §7: §f" + e.getMessage());
             else {
                 e.getPlayer().sendMessage("§cSomething went Wrong! Please Contact a Server Administrator.");
                 System.err.println("Permission System: Chat Error!");

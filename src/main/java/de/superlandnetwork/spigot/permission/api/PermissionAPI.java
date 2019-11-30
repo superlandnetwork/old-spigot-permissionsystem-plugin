@@ -113,15 +113,15 @@ public class PermissionAPI {
     }
 
     public int getHighestVisibleGroup(UUID uuid) throws SQLException {
-        String sql = "SELECT `groupId` FROM " + Table.MC_USERS.getName() + " WHERE `deleted_at` IS NULL AND uuid='"+ uuid + "' ORDER BY `" + Table.MC_USERS.getName() + "`.`groupId` DESC";
-        ResultSet rs = mySQL.getResult(sql);
-        while (rs.next()) {
-            int id = rs.getInt("groupId");
-            String sql2 = "SELECT `visible` FROM " + Table.MC_GROUPS.getName() + " WHERE `deleted_at` IS NULL AND id='"+ id + "'";
-            ResultSet rs2 = mySQL.getResult(sql2);
-            if (rs2.getBoolean("visible"))
-                return id;
-        }
+//        String sql = "SELECT `groupId` FROM " + Table.MC_USERS.getName() + " WHERE `deleted_at` IS NULL AND uuid='"+ uuid + "' ORDER BY `" + Table.MC_USERS.getName() + "`.`groupId` DESC";
+//        ResultSet rs = mySQL.getResult(sql);
+//        while (rs.next()) {
+//            int id = rs.getInt("groupId");
+//            String sql2 = "SELECT `visible` FROM " + Table.MC_GROUPS.getName() + " WHERE `deleted_at` IS NULL AND id='"+ id + "'";
+//            ResultSet rs2 = mySQL.getResult(sql2);
+//            if (rs2.getBoolean("visible"))
+//                return id;
+//        }
         return 1;
     }
 

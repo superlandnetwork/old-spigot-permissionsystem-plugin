@@ -31,7 +31,6 @@ package de.superlandnetwork.spigot.permission.listeners;
 import de.superlandnetwork.spigot.permission.Main;
 import de.superlandnetwork.spigot.permission.api.PermissionAPI;
 import de.superlandnetwork.spigot.permission.api.User;
-import de.superlandnetwork.spigot.permission.utils.CustomPermissibleBase;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -47,7 +46,6 @@ public class JoinListener implements Listener {
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
-        setCustomPermissibleBase(p);
         PermissionAPI api = new PermissionAPI();
         try {
             api.connect();
@@ -66,15 +64,6 @@ public class JoinListener implements Listener {
         for (String s : list) {
             attachment.setPermission(s, true);
         }
-    }
-
-    private void setCustomPermissibleBase(Player p) {
-        try {
-            CustomPermissibleBase.inject(p);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
 }
