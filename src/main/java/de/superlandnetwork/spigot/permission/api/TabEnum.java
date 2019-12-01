@@ -2,15 +2,15 @@ package de.superlandnetwork.spigot.permission.api;
 
 public enum TabEnum {
 
-    PLAYER(1, "0001"),
-    PREMIUM(2, "0002"),
-    YOUTUBE(3, "0003"),
-    TWITCH(4, "0004"),
-    BUILDER(7, "0007"),
-    SUP(8, "0008"),
-    MOD(9, "0009"),
-    DEV(10, "0010"),
-    ADMIN(11, "0011");
+    PLAYER(1, "0009"),
+    PREMIUM(2, "0008"),
+    YOUTUBE(3, "0007"),
+    TWITCH(4, "0006"),
+    BUILDER(7, "0005"),
+    SUP(8, "0004"),
+    MOD(9, "0003"),
+    DEV(10, "0002"),
+    ADMIN(11, "0001");
     private int id;
     private String tag;
 
