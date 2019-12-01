@@ -100,7 +100,7 @@ public class PermissionAPI {
         String sql = "SELECT `chat` FROM " + Table.MC_GROUPS.getName() + " WHERE `deleted_at` IS NULL AND id='"+ groupId + "'";
         ResultSet rs = mySQL.getResult(sql);
         if (rs.next())
-            return Optional.of(rs.getString("chat"));
+            return Optional.ofNullable(rs.getString("chat"));
         return Optional.empty();
     }
 
@@ -108,7 +108,7 @@ public class PermissionAPI {
         String sql = "SELECT `tab` FROM " + Table.MC_GROUPS.getName() + " WHERE `deleted_at` IS NULL AND id='"+ groupId + "'";
         ResultSet rs = mySQL.getResult(sql);
         if (rs.next())
-            return Optional.of(rs.getString("tab"));
+            return Optional.ofNullable(rs.getString("tab"));
         return Optional.empty();
     }
 

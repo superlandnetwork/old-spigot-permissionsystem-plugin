@@ -31,6 +31,8 @@ package de.superlandnetwork.spigot.permission;
 import com.google.common.reflect.ClassPath;
 import de.superlandnetwork.spigot.api.database.MySQL;
 import de.superlandnetwork.spigot.permission.commands.Perm;
+import de.superlandnetwork.spigot.permission.listeners.ChatListener;
+import de.superlandnetwork.spigot.permission.listeners.JoinListener;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
