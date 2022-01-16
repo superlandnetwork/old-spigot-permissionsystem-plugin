@@ -1,5 +1,8 @@
 # Spigot Permission System
 
-[![Build Status](https://travis-ci.com/SuperLandNetwork/Spigot-PermissionSystem-Plugin.svg?branch=master)](https://travis-ci.com/SuperLandNetwork/Spigot-PermissionSystem-Plugin)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![GitHub release](https://img.shields.io/github/release/SuperLandNetwork/Spigot-PermissionSystem-Plugin.svg)
+[![GitHub last commit](https://img.shields.io/github/last-commit/superlandnetwork/old-spigot-permissionsystem-plugin?logo=github&style=for-the-badge)](https://github.com/superlandnetwork/old-spigot-permissionsystem-plugin/commits)
+[![License](https://img.shields.io/github/license/superlandnetwork/old-spigot-permissionsystem-plugin?style=for-the-badge)](https://github.com/superlandnetwork/old-spigot-permissionsystem-plugin/blob/main/LICENSE)
+
+## License
+
+This project is under the MIT License. See the [LICENSE](https://github.com/superlandnetwork/old-spigot-permissionsystem-plugin/blob/main/LICENSE) file for the full license text.
